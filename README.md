@@ -1,4 +1,4 @@
 # PencilSketchEffect
 A Post Effect for Unity
 
-![Imgur](http://imgur.com/5ZaeleM)
+![Imgur](http://i.imgur.com/5ZaeleM.gif)
