@@ -1,4 +1,6 @@
-﻿Shader "Hidden/HatchingComposite"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Hidden/HatchingComposite"
 {
 	Properties
 	{
@@ -36,7 +38,7 @@
 			v2f vert (appdata v)
 			{
 				v2f o;
-				o.vertex = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = v.uv;
 				o.uvFlipY = o.uv;
 #if defined(UNITY_UV_STARTS_AT_TOP) && !defined(SHADER_API_MOBILE)
@@ -59,7 +61,7 @@
 
 				weightsA.xy -= weightsA.yz;
 				weightsA.z	-= weightsB.x;
-				weightsB.xy -= weightsB.zy;
+				weightsB.xy -= weightsB.yz;
 
 				hatch0 = hatch0 * weightsA;
 				hatch1 = hatch1 * weightsB;
